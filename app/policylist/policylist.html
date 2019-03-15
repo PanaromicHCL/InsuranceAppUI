@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row"> 
+        <p class="title">Policies List</p> 
+        <div class="col-sm-2 grid-heading">LIC Policies</div>
+        <div class="col-sm-2 grid-heading">Entry Age</div>
+        <div class="col-sm-2 grid-heading">Maximum Maturity Age</div>
+        <div class="col-sm-2 grid-heading">Policy Term</div>
+        <div class="col-sm-2 grid-heading">Minimum Premium/Purchase Price</div>
+        <div class="col-sm-2 grid-heading">Minimun Sum Assured</div>
+
+        <div ng-controller="PoliciesListCtrl">
+            <div ng-repeat="pol in polList">
+                <div class="col-sm-2 grid-data">
+                        {{pol.name}}
+                    <!-- <span class="details"></span>{{pol.name}} -->
+                    <!-- <ang-accordion>
+                        <collapsible-item item-title="Some Heading">
+                            <div>This is regular html code</div>
+                        </collapsible-item>
+                    </ang-accordion> -->
+                </div>
+                <div class="col-sm-2 grid-data">{{pol.entryage}}</div>
+                <div class="col-sm-2 grid-data">{{pol.maxmatage}}</div>
+                <div class="col-sm-2 grid-data">{{pol.term}}</div>
+                <div class="col-sm-2 grid-data">{{pol.minprem}}</div>
+                <div class="col-sm-2 grid-data">{{pol.minsumass}}</div>
+            </div>
+        </div>
+    </div>
+</div>
