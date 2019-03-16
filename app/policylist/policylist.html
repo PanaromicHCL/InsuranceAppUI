@@ -11,19 +11,28 @@
         <div ng-controller="PoliciesListCtrl">
             <div ng-repeat="pol in polList">
                 <div class="col-sm-2 grid-data">
-                        {{pol.name}}
-                    <!-- <span class="details"></span>{{pol.name}} -->
-                    <!-- <ang-accordion>
-                        <collapsible-item item-title="Some Heading">
-                            <div>This is regular html code</div>
-                        </collapsible-item>
-                    </ang-accordion> -->
+                    <!-- {{pol.name}} -->
+                    <a data-toggle="collapse" data-target="#{{$index + 1}}" ng-click="showData(pol.id)">{{pol.name}}</a> 
                 </div>
                 <div class="col-sm-2 grid-data">{{pol.entryage}}</div>
-                <div class="col-sm-2 grid-data">{{pol.maxmatage}}</div>
-                <div class="col-sm-2 grid-data">{{pol.term}}</div>
-                <div class="col-sm-2 grid-data">{{pol.minprem}}</div>
-                <div class="col-sm-2 grid-data">{{pol.minsumass}}</div>
+                <div class="col-sm-2 grid-data">{{pol.maturityage}}</div>
+                <div class="col-sm-2 grid-data">{{pol.policyterm}}</div>
+                <div class="col-sm-2 grid-data">{{pol.minimumpremium}}</div>
+                <div class="col-sm-2 grid-data">{{pol.sumassured}}</div>
+                
+                <div id="{{$index + 1}}" class="collapse">
+                    <p>
+                        {{polDetails.textualDescription}}   
+                    </p>
+                    <ul>
+                        {{polDetails.salientDescription}}   
+                    </ul>
+                    <ul>
+                        {{polDetails.termsCondition}}   
+                    </ul>
+                    <input type="checkbox" name="terms" ng-model>
+                    <button id="confirm" class="btn btn-primary" ng-disabled="{{terms}}" ng-click="buy()">Confirm</button>
+                </div>
             </div>
         </div>
     </div>
